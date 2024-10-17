@@ -1,17 +1,19 @@
 "use client";
 import { createHDNodeFromRandomMnemonic } from "@/utils/wallet";
+import { HDNodeWallet } from "ethers";
 
 const WalletPhrase = ({
   phraseWords,
+  hdNode,
   setPassword,
   onWalletPrivateKeyGenerated,
 }: {
   phraseWords: string[];
+  hdNode: HDNodeWallet | null;
   setPassword: (value: boolean) => void;
   onWalletPrivateKeyGenerated: (value: string) => void;
 }) => {
   const handleConfirmMnemonic = () => {
-    const { hdNode } = createHDNodeFromRandomMnemonic();
     if (hdNode) {
       const wallet = hdNode.derivePath("0");
       onWalletPrivateKeyGenerated(wallet.privateKey);

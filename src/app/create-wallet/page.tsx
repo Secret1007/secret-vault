@@ -16,7 +16,7 @@ const CreatWalletPage = () => {
   useEffect(() => {
     // 自动执行的函数
     try {
-      const { phrase = "" } = createHDNodeFromRandomMnemonic(); // 调用函数并获取助记词
+      const { phrase = "", hdNode } = createHDNodeFromRandomMnemonic(); // 调用函数并获取助记词
       setPhrase(phrase); // 使用 setPhrase 更新状态
     } catch (error) {
       console.error("Error creating wallet:", error);
@@ -39,6 +39,7 @@ const CreatWalletPage = () => {
             <div className="flex flex-col items-center border border-purple-500 rounded-lg shadow-lg overflow-hidden p-8">
               <WalletPhrase
                 phraseWords={phraseWords}
+                hdNode={hdNode}
                 setPassword={setPassword}
                 onWalletPrivateKeyGenerated={handleWalletPrivateKey}
               />
