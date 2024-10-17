@@ -1,7 +1,4 @@
 import { Wallet, HDNodeWallet } from "ethers";
-// import 
-// import useLocalStorageState from 'use-local-storage-state'
-
 
 /**
  * 生成助记词并创建 HDNode
