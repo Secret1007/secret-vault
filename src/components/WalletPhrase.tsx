@@ -1,5 +1,4 @@
 "use client";
-import { createHDNodeFromRandomMnemonic } from "@/utils/wallet";
 import { HDNodeWallet } from "ethers";
 
 const WalletPhrase = ({
@@ -9,7 +8,7 @@ const WalletPhrase = ({
   onWalletPrivateKeyGenerated,
 }: {
   phraseWords: string[];
-  hdNode: HDNodeWallet | null;
+  hdNode: HDNodeWallet | undefined;
   setPassword: (value: boolean) => void;
   onWalletPrivateKeyGenerated: (value: string) => void;
 }) => {

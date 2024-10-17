@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import { createHDNodeFromRandomMnemonic } from "@/utils/wallet";
 import WalletPhrase from "@/components/WalletPhrase";
 import WalletPassord from "@/components/WalletPassord";
+import { HDNodeWallet } from "ethers";
 
 const CreatWalletPage = () => {
   const [phrase, setPhrase] = useState(""); // 使用 setPhrase 更新状态
   const [password, setPassword] = useState(false); // 用于存储密码的状态
   const [privateKey, setPrivateKey] = useState(""); // 用于存储私钥的状态
+  const [hdNode, setHdNode] = useState<HDNodeWallet>();
 
   const handleReturnClick = () => {
     setPassword(false); // 清空密码输入框
@@ -18,6 +20,7 @@ const CreatWalletPage = () => {
     try {
       const { phrase = "", hdNode } = createHDNodeFromRandomMnemonic(); // 调用函数并获取助记词
       setPhrase(phrase); // 使用 setPhrase 更新状态
+      setHdNode(hdNode);
     } catch (error) {
       console.error("Error creating wallet:", error);
     }
