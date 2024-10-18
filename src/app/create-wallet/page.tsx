@@ -25,6 +25,7 @@ const CreatWalletPage = () => {
       console.error("Error creating wallet:", error);
     }
   }, []); // 空依赖数组，确保只在组件挂载时执行
+  console.log("创建钱包时生成的助记词:", phrase);
   // 将 phrase 字符串转换为数组
   const phraseWords = phrase ? phrase.trim().split(/\s+/) : [];
 

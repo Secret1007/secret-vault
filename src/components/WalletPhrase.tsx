@@ -15,6 +15,7 @@ const WalletPhrase = ({
   const handleConfirmMnemonic = () => {
     if (hdNode) {
       const wallet = hdNode.derivePath("0");
+      console.log("钱包地址:", wallet.address);
       onWalletPrivateKeyGenerated(wallet.privateKey);
       setPassword(true);
     }

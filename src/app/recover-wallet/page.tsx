@@ -1,10 +1,14 @@
 "use client";
-import { Wallet } from "ethers";
+import { Mnemonic } from "ethers";
+import { HDNodeWallet } from "ethers";
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // 用于页面跳转
 
 const RecoverWalletPage = () => {
   // 创建一个12个助记词的数组，每个助记词为空字符串
   const [mnemonics, setMnemonics] = useState(Array(12).fill(""));
+
+  const router = useRouter(); // 用于页面跳转
 
   // 输入框变动时更新相应的助记词
   const handleChange = (index: number, value: string) => {
@@ -21,9 +25,17 @@ const RecoverWalletPage = () => {
       console.log("导入钱包助记词:", mnemonics);
       // 在这里执行导入钱包的具体逻辑
 
+      console.log("恢复钱包时输入的助记词", mnemonics.join(" "));
+      // 创建 Mnemonic 对象
+      const mnemonic = Mnemonic.fromPhrase(mnemonics.join(" "));
+
+      console.log("恢复钱包时创建的 Mnemonic 对象", mnemonic);
       // 用助记词恢复钱包
-      const recoveredWallet = Wallet.fromPhrase(mnemonics.join(" "));
+      const recoveredWallet =
+        HDNodeWallet.fromMnemonic(mnemonic).derivePath("0");
       console.log("恢复的钱包地址:", recoveredWallet.address);
+      // 解密成功，跳转到交易页面
+      router.push("/transaction");
     } else {
       alert("请输入完整的12个助记词");
     }
