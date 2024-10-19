@@ -19,6 +19,11 @@ const Wallet = () => {
       >
         助记词恢复钱包
       </Link>
+      <div className="flex justify-center  ">
+        <Link href="/docs" className="text-purple-700">
+          Not ready? Go to wallet docs
+        </Link>
+      </div>
     </div>
   );
 };
