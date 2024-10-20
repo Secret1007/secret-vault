@@ -23,13 +23,10 @@ const RecoverWalletPage = () => {
     if (allFilled) {
       // 执行导入钱包逻辑，可以将助记词传递给相应的处理函数
       console.log("导入钱包助记词:", mnemonics);
-      // 在这里执行导入钱包的具体逻辑
 
-      console.log("恢复钱包时输入的助记词", mnemonics.join(" "));
       // 创建 Mnemonic 对象
       const mnemonic = Mnemonic.fromPhrase(mnemonics.join(" "));
 
-      console.log("恢复钱包时创建的 Mnemonic 对象", mnemonic);
       // 用助记词恢复钱包
       const recoveredWallet =
         HDNodeWallet.fromMnemonic(mnemonic).derivePath("0");

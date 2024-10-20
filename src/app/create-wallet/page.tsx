@@ -4,14 +4,12 @@ import { createHDNodeFromRandomMnemonic } from "@/utils/wallet";
 import WalletPhrase from "@/components/wallet/WalletPhrase";
 import WalletPassord from "@/components/wallet/WalletPassord";
 import { HDNodeWallet } from "ethers";
-import useHdNodeStore from "@/store";
 
 const CreatWalletPage = () => {
   const [phrase, setPhrase] = useState(""); // 使用 setPhrase 更新状态
   const [password, setPassword] = useState(false); // 用于存储密码的状态
   const [privateKey, setPrivateKey] = useState(""); // 用于存储私钥的状态
   const [hdNode, setHdNode] = useState<HDNodeWallet>();
-  const { update } = useHdNodeStore();
 
   const handleReturnClick = () => {
     setPassword(false); // 清空密码输入框
@@ -24,12 +22,11 @@ const CreatWalletPage = () => {
       setPhrase(phrase); // 使用 setPhrase 更新状态
       if (hdNode) {
         setHdNode(hdNode);
-        update(hdNode);
       }
     } catch (error) {
       console.error("Error creating wallet:", error);
     }
-  }, [update]); // 空依赖数组，确保只在组件挂载时执行
+  }, []); // 空依赖数组，确保只在组件挂载时执行
   console.log("创建钱包时生成的助记词:", phrase);
   // 将 phrase 字符串转换为数组
   const phraseWords = phrase ? phrase.trim().split(/\s+/) : [];
