@@ -1,3 +1,5 @@
+![Alt text](/wallet.png)
+
 ## BIP
 
 BIP（Bitcoin Improvement Proposal，比特币改进提案）是一种标准化流程，用于提出和讨论比特币协议的改进。BIP 为开发者和社区提供了一个渠道，来提出比特币网络的新功能、优化或者更改。它的目的是使比特币的进化更加透明和协作。

@@ -15,7 +15,6 @@ export default async function Post({ params }: Props) {
 
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-4xl font-bold">{postData.id}</h1>
       <div
         className="prose"
         dangerouslySetInnerHTML={{ __html: postData.contentHtml }}

@@ -32,10 +32,7 @@ export async function getPostData(id: string) {
   const processedContent = await remark()
     .use(html)
     .process(matterResult.content);
-  console.log('processedContent:', processedContent)
   const contentHtml = processedContent.toString();
-
-  console.log('contentHtml:', contentHtml)
   return {
     id,
     contentHtml,
