@@ -14,10 +14,11 @@ export default async function Post({ params }: Props) {
   }
 
   return (
-    <div>
-      <h1>{postData.id}</h1>
+    <div className="flex flex-col items-center">
+      <h1 className="text-4xl font-bold">{postData.id}</h1>
       <div
-        dangerouslySetInnerHTML={{ __html: "<p>啊啊啊啊啊啊</p><h2>11</h2>" }}
+        className="prose"
+        dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
       />
     </div>
   );

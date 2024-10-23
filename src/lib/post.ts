@@ -21,8 +21,6 @@ export function getSortedPostsData() {
     };
   });
 
-  console.log('allPostsData:', allPostsData)
-
   return allPostsData.sort((a, b) => (a.id < b.id ? 1 : -1));
 }
 
