@@ -4,6 +4,7 @@ import Send from "./components/Send";
 import Receive from "./components/Receive";
 import Swap from "./components/Swap";
 import Bridge from "./components/Bridge";
+import MultipChain from "@/components/chain/MultipChain";
 
 const TransactionPage = () => {
   const [activeTab, setActiveTab] = useState("send"); // 当前激活的选项卡
@@ -11,6 +12,7 @@ const TransactionPage = () => {
   return (
     <div className="flex flex-col items-center bg-gray-100 min-h-screen">
       <h1 className="text-3xl font-bold my-6">Transaction Page</h1>
+      <MultipChain />
       <div className="flex space-x-4 mb-4">
         <button
           onClick={() => setActiveTab("send")}

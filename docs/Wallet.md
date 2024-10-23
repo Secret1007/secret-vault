@@ -23,6 +23,11 @@ BIP-39 builds on BIP-32 by introducing a way to generate private keys using a mn
 - HDNode 使用树状结构，每个节点都可以生成多个子节点。通过指定路径，可以轻松访问特定的子密钥。
 - 例如，m/0'/0'/0' 表示第一个主分支下的第一个子分支下的第一个子节点。
 
+- HDNode uses a tree structure, where each node can generate multiple child nodes. Specific child keys can be accessed easily by specifying a path.
+- For example, m/0'/0'/0' indicates the first child of the first child of the first main branch.
+
 ### 路径表示法
 
 路径表示法中，m 表示主密钥，后面的数字表示分支和子分支。路径中的数字后加上 ' 表示该子密钥是从主密钥派生出的一个硬件派生密钥（hardened derivation），这提供了更高的安全性。
+
+In path notation, m represents the master key, and the following numbers represent branches and sub-branches. A ' after a number indicates that the child key is derived from a hardened key, offering enhanced security.
